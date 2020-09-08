@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>math对象</title>
+	</head>
+	<body>
+		<script>
+			//一、Math简单运用
+			console.log(Math.PI);
+			console.log(Math.max(1,99,6));
+			console.log(Math.max(1,99,'oink'));   //里面有非数字的则返回	NaN，非数字的意思
+			console.log(Math.max());    //-Infinity
+			
+			//二、自己封装一个math对象
+			var myMath={
+				PI:3.1415926535,
+				max:function(){
+					var max=arguments[0];
+					for(var i=1;i<arguments.length;i++){
+						if(max<arguments[i]){
+							max=arguments[i];
+						}
+					}
+					return max;
+				}
+			}
+			console.log(myMath.PI);
+			console.log(Math.max(1,9,6,45));
+			
+			//三、隐式转换
+			console.log(Math.abs('-1'));
+			
+			//四、取整之四舍五入
+			console.log(Math.round('-20.51'));    //画个数轴一目了然
+			
+			//五、生成随机数
+			console.log(Math.random());
+			//1.返回任意两个整数数之间的随机整数；包括这两个整数
+			function getrandom(min,max){
+				return min+Math.floor((max-min+1)*Math.random());
+			}
+			console.log(getrandom(1,10));
+			//2.配合数组随机点名
+			var arr=['剑魔','扎克','诺手','武器','死歌'];
+			console.log(arr[getrandom(0,arr.length-1)]);
+		</script>
+	</body>
+</html>

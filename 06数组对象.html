@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组对象</title>
+	</head>
+	<body>
+		<script>
+			//一、创建数组
+			//方法1.数组字面量
+			var arr1=[1,2,3];
+			//方法2.数组内置对象Array
+			var arr2=new Array(2);   //表示有2个空的数组元素
+			console.log(arr2);
+			var arr3=new Array(2,3);   //等价于[2,3]
+			console.log(arr3);
+			
+			//二、检测是否为数组
+			//1.instanceof检测
+			var arr=[];
+			var obj={};
+			console.log(arr instanceof Array);
+			console.log(obj instanceof Array);
+			//2.Array.isArray(参数)
+			console.log(Array.isArray(arr));
+			console.log(Array.isArray(obj));
+			
+			//三、添加数组元素
+			//1.push()后入
+			var arr4=[1,2,3];
+			arr4.push(4,'pink');
+			console.log(arr4);    //返回整个数组
+			console.log(arr4.push(5));   //返回添加后的数组长度，注意此处多了个5
+			//2.unshift前入，用法同上
+			arr4.unshift(0,'deeppink');
+			console.log(arr4); 
+			
+			//三、删除数组元素
+			//1.pop()删除最后一个元素
+			console.log(arr4.pop());   //返回弹出的元素
+			//2.shift
+			console.log(arr4.shift());
+			
+			//四、数组翻转
+			arr5=[1,2,3,4];
+			arr5.reverse();
+			console.log(arr5);
+			//自己封装：
+			function myReverse(arr){
+				var newarr=[];
+				for(var i=0;i<arr.length;i++){
+					newarr[i]=arr[arr.length-i-1];
+				}
+				return newarr;
+			}
+			console.log(myReverse(arr5));
+			
+			//五、数组排序
+			var arr6=[7,55,9,66];
+			arr6.sort(function(a,b){
+				//return a-b;    //升序 
+				return b-a;    //降序
+			})
+			console.log(arr6);
+		</script>
+	</body>
+</html>
