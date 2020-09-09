@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			span{
+				display:inline-block;
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				color:white;
+				font-size:80px;
+				line-height: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<span>22</span>
+		<span>03</span>
+		<span>46</span>
+		
+		<script>
+			var hour=document.querySelectorAll('span')[0];
+			var min=document.querySelectorAll('span')[1];
+			var sec=document.querySelectorAll('span')[2];
+			var inputtime=+new Date(2020,6,12,8,8,8);
+			count();
+			setInterval(count,1000);
+			function count()
+			{
+				var now=+new Date();
+				var time=(inputtime-now)/1000;
+				var h=parseInt(time/3600);
+				h=h<10?'0'+h:h;
+				hour.innerHTML=h;
+				var m=parseInt(time/60%60);
+				m=m<10?'0'+m:m;
+				min.innerHTML=m;
+				var s=parseInt(time%60);
+				s=s<10?'0'+s:s;
+				sec.innerHTML=s;
+			}
+		</script>
+	</body>
+</html>

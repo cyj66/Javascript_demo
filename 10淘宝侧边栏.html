@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			header{
+				margin: 50px;
+				height: 100px;
+				background-color: indigo;
+				font-size: 50px;
+				color:white;
+				text-align: center;
+				line-height: 100px;
+			}
+			nav{
+				margin: 50px;
+				height: 400px;
+				background-color: royalblue;
+				font-size: 50px;
+				color:white;
+				text-align: center;
+				line-height: 200px;
+			}
+			article{
+				margin: 50px;
+				height: 1000px;
+				background-color:indianred;
+				font-size: 50px;
+				color:white;
+				text-align: center;
+				line-height: 500px;
+			}
+			aside{
+				width: 50px;
+				height: 200px;
+				position:absolute;
+				right: 0;
+				top: 350px;
+				background-color: pink;
+			}
+			span{
+				display: none;
+				font-size: 20px;
+				color:black;
+				text-align: center;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<header>头部</header>
+		<nav>导航栏</nav>
+		<article>主体</article>
+		<aside><span>返回顶部</span></aside>
+		
+		<script>
+			var aside=document.querySelector('aside');
+			var nav=document.querySelector('nav');
+			var article=document.querySelector('article');
+			var JuRanBuNengZhiJieJian1=aside.offsetTop-nav.offsetTop;   //下面的样式书写不能直接减
+			var span=document.querySelector('span');
+			document.addEventListener('scroll',function(){    //页面滚动，因此对象是document
+				//console.log(window.pageYOffset);    得到页面的滚动距离，区别element.scrollTop
+				if(window.pageYOffset>=nav.offsetTop){
+					aside.style.position='fixed';
+					aside.style.top=JuRanBuNengZhiJieJian1+'px';
+				}
+				else{
+					aside.style.position='absolute';
+					aside.style.top='350px';
+				}
+				if(window.pageYOffset>=article.offsetTop){
+					span.style.display='block';
+				}
+				else{
+					span.style.display='none';
+				}
+			})
+			span.addEventListener('click',function(){
+				window.scroll(0,0);    //不带单位，也可通过添加动画缓慢滚动
+			})
+	
+			
+		</script>
+	</body>
+</html>

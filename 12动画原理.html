@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				position:absolute;   /* 必须加定位才能动!!!!!!!!!!! */
+				width: 200px;
+				height: 200px;
+				background-color: palegreen;
+			}
+			p{
+				position:absolute;   /* 必须加定位才能动!!!!!!!!!!! */
+				top: 300px;
+				width: 300px;
+				height: 300px;
+				background-color: mediumslateblue;
+			}
+		</style>
+	</head>
+	<body>
+		<button>点击我第一个才可移动</button>
+		<div></div>
+		<p></p>
+		<script>
+			var div=document.querySelector('div');
+			var p=document.querySelector('p');
+			var btn=document.querySelector('button');
+			//动画函数封装，两个参数：对象+移动距离
+			function animate(obj,len){
+				clearInterval(obj.timer);   //先清除上一个定时器，防止反复添加定时器速度飞起
+				obj.timer=setInterval(function(){    //此处也可用var但会占用很多空间，不如给不同的对象不同的定时器
+					if(obj.offsetLeft>=len)
+					{
+						clearInterval(obj.timer);
+					}
+					else{
+						obj.style.left=obj.offsetLeft+5+'px';
+					}
+				},50)
+			}
+			animate(p,500);
+			btn.addEventListener('click',function(){
+				animate(div,500);
+			})
+		</script>
+	</body>
+</html>

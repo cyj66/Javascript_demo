@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				padding:10px;
+				border:10px solid #000000;
+				background-color: red;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+		</div>
+		<script>
+			var div=document.querySelector('div');
+			console.log(div.scrollHeight);
+			//当滚动条变化触发的事件onscroll
+			div.addEventListener('scroll',function(){
+				console.log(div.scrollTop);
+			})
+		</script>
+	</body>
+</html>

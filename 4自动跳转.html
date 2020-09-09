@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var div=document.querySelector('div');
+			var t=5;
+			setInterval(function()
+				{
+					if(t>0)
+					{
+						div.innerHTML='还有'+t+'秒跳转到B站首页';
+						t--;
+					}
+					else{
+						location.href='http://bilibili.com';
+					}
+				},1000)
+		</script>
+	</body>
+</html>

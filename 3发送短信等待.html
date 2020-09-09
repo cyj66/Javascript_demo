@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number">
+		<button>发送</button>
+		
+		<script>
+			var ipt=document.querySelector('input');
+			var btn=document.querySelector('button');
+			
+			btn.addEventListener('click',function()
+			{
+				btn.disabled=true;     //不是disable
+				var t=5;
+				ipt.value='';
+				function fn()
+				{
+					if(t>0)
+					{
+						btn.innerHTML='剩余'+t+'秒';
+						t--;
+					}
+					else
+					{
+						clearInterval(timer);
+						btn.disabled=false;
+						btn.innerHTML='发送';
+					}
+				}
+				var timer=setInterval(fn,1000);
+			})
+		</script>
+	</body>
+</html>

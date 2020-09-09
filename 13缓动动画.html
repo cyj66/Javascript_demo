@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				position:absolute;
+				top: 100px;
+				width: 200px;
+				height: 200px;
+				background-color: navy;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="b500">点我可走500</button>
+		<button class="b800">点我可走800</button>
+		<div></div>
+		<!-- 匀速动画=盒子当前位置+固定步长值10
+		缓慢动画=盒子当前位置+变化步长值（目标值-当前位置）/10 -->
+		<script>
+			var b500=document.querySelector('.b500');
+			var b800=document.querySelector('.b800');
+			var div=document.querySelector('div');
+			function slowAnimate(obj,len,callback){     //对象，距离，回调函数
+				clearInterval(obj.timer);
+				obj.timer=setInterval(function(){
+					var step=(len-obj.offsetLeft)/10;     //重点
+					step=step>0?Math.ceil(step):Math.floor(step);   //还要进行取整，否则因公式原因会有所偏差
+					if(obj.offsetLeft==len)
+					{
+						clearInterval(obj.timer);
+						if(callback){     //如果有回调函数，则定时器结束执行回调函数
+							callback();
+						}
+					}
+					else{
+						obj.style.left=obj.offsetLeft+step+'px';
+					}
+				},50)
+			}
+			b500.addEventListener('click',function(){
+				slowAnimate(div,500,function(){
+					div.style.backgroundColor='red';
+				});
+			});
+			b800.addEventListener('click',function(){
+				slowAnimate(div,800);
+			});
+			
+		</script>
+	</body>
+</html>

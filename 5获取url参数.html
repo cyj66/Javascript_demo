@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			console.log(location.search)   //?uname=456
+			var search=location.search.substr(1);   //从1截到最后
+			var arr=search.split('=');
+			var div=document.querySelector('div');
+			div.innerHTML=arr[1]+'欢迎您';
+		</script>
+	</body>
+</html>

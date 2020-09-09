@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.father{
+				width: 400px;
+				height: 400px;
+				background-color: khaki;
+			}
+			.son{
+				width: 200px;
+				height: 200px;
+				background-color: fuchsia;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		
+		<script>
+			var fa=document.querySelector('.father');
+			var so=document.querySelector('.son');
+			/*fa.addEventListener('mouseover',function(){
+				console.log('爸爸');
+			});*/
+			/*fa.addEventListener('mouseenter',function(){
+				console.log('爸爸');
+			});*/
+			/*fa.addEventListener('mouseout',function(){
+				console.log('爸爸');
+			});*/
+			fa.addEventListener('mouseleave',function(){
+				console.log('爸爸');
+			});
+		</script>
+	</body>
+</html>

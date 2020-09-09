@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 500px;
+				height: 500px;
+				background-color: olive;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			window.addEventListener('load',function()
+			{
+				var div=document.querySelector('div');
+				window.addEventListener('resize',function()
+				{
+					console.log(window.innerWidth);
+					if(window.innerWidth<=800)         //不用单位
+					{
+						div.style.display='none';
+					}
+					else{
+						div.style.display='block';
+					}
+				})
+			})
+		</script>
+		<div></div>
+	</body>
+</html>
