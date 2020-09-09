@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取元素</title>
+	</head>
+	<body>
+		<div id="time">2020-5-28</div>
+		
+		<ul>
+			<li>强啊霸哥1</li>
+			<li>强啊霸哥2</li>
+			<li>强啊霸哥3</li>
+			<li>强啊霸哥4</li>
+			<li>强啊霸哥5</li>
+		</ul>		
+		
+		<ol>
+			<li>强啊shy哥</li>
+			<li>强啊shy哥</li>
+			<li>强啊shy哥</li>
+			<li>强啊shy哥</li>
+		</ol>
+		
+		<script>
+			//一、id
+				//1.因为文档从上往下加载，所以先得有标签，再将script写在下面
+				//2.参数是字符串，且对大小写敏感,js中习惯单引号
+				var timer=document.getElementById('time');   
+				console.log(timer);
+				//3.返回的是元素对象，不是字符串
+				console.log(typeof timer);
+				//4.可以打印元素对象的所有属性和方法
+				console.dir(timer);
+				
+			//二、标签
+				//1.返回的是获取过来元素对象的集合,以伪数组的形势存储，无论有多少个元素
+				//（伪数组:具有length属性以及索引方式，但没有push\pop\forEach方法
+				var lis=document.getElementsByTagName("li");
+				console.log(lis);
+				console.log(lis[0]);
+				//2.父元素.getElementsByTagName('标签名');     父元素必须是指定的单个元素
+				var ols=document.getElementsByTagName('ol');
+				console.log(ols[0].getElementsByTagName('li'));   //此处如果只是ols会出错，因为返回的是伪数组不是单个元素
+		</script>
+	</body>
+</html>

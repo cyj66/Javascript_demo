@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			textarea{
+				border:1px solid pink;
+				width: 300px;
+				height: 300px;
+				resize:none;
+			}
+			ul{
+				width: 200px;
+				height: 100px;
+			}
+			li{
+				background-color: pink;
+				margin:10px 0;
+			}
+			li a{
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea rows="" cols="">
+		</textarea>
+		<button>发布</button>
+		<ul>
+		</ul>
+		
+		<script>
+			var text=document.querySelector('textarea');
+			var btn=document.querySelector('button');
+			var ul=document.querySelector('ul');
+			btn.onclick=function(){
+				if(text.value=='')
+				{
+					alert('您没有输入内容');
+				}
+				var li=document.createElement('li');
+				li.innerHTML=text.value+'<a href="javascript:;">删除</a>';  //不跳转，#会跳转
+				ul.insertBefore(li,ul.children[0]);
+				text.value='';
+				var as=document.querySelectorAll('a');
+				for(var i=0;i<as.length;i++)
+				{
+					as[i].onclick=function(){
+						ul.removeChild(this.parentNode);
+					}
+					
+				}
+				
+			}
+		</script>
+	</body>
+</html>

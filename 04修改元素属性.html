@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="ldh">刘德华</button>
+		<button id="zxy">张学友</button>
+		<img width="200px" src="../images/ldh.jpg" alt="" title="刘德华">
+		
+		<script>
+			var btn1=document.getElementById('ldh');
+			var btn2=document.getElementById('zxy');
+			var img=document.querySelector('img');
+			btn1.onclick=function(){
+				img.src="../images/ldh.jpg";     //获取元素属性并修改
+				img.title="刘德华";
+			}
+			btn2.onclick=function(){
+				img.src="../images/zxy.jpg";
+				img.title="张学友";
+			}
+		</script>
+	</body>
+</html>

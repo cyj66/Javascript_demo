@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.tab{
+				width: 983px;
+				margin:100px auto;
+			}
+			li{
+				list-style:none;
+			}
+			.head{
+				height: 40px;
+				border:1px solid black;
+				background-color: pink;
+			}
+			.head li{
+				float: left;
+				line-height: 40px;
+				height: 40px;
+				padding:0px 90px;
+				text-align: center;
+				
+			}
+			.item{
+				display: none;
+				padding:10px 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tab">
+			<div class="head">
+				<ul>
+					<li>被动</li>
+					<li>Q</li>
+					<li>W</li>
+					<li>E</li>
+					<li>R</li>
+				</ul>
+			</div>
+			
+			<div class="body">
+				<div class="item">亚托克斯的下一次普通攻击距离增加50，根据自身的攻击力和目标的最大生命值造成5-10%额外物理伤害（戳刺小兵时治疗相当于25%的实际伤害值），对野怪伤害最高造成100。
+	当亚托克斯施放技能，或是暗裔利刃命中了敌方英雄时，赐死剑气的冷却时间将会减少2秒。
+	冷却时间：24-12(英雄等级1-18级时)</div>
+				<div class="item">亚托克斯将巨剑挥舞至多三次，造成范围伤害。第一击将造成10/30/50/70/90(+0.55/0.60/0.65/0.70/0.75AD)物理伤害，随后每一次伤害递增，第二击造成额外25%的伤害，可造成剑锋效果。
+	剑锋：前两次以挥击最外缘且最后一次以挥击中心命中敌人时，将造成击飞效果0.25秒，同时造成50%额外伤害。对野怪击飞2秒。
+	对小兵造成55%伤害。
+	冷却时间：14/12/10/8/6
+	Q1长度：650
+	Q1宽度：200
+	Q2长度：525</div>
+				<div class="item">亚托克斯猛击地面，对第一个命中的敌人造成30/40/50/60/70(+0.4AD)伤害和持续1.5秒的25%减速效果。如果目标是敌方英雄或大型野怪，就会被禁锢在撞击的区域内。
+	如果被禁锢的敌人在1.5秒之后仍在撞击区域内，就会被拖到区域中心，并再次受到伤害。
+	冷却时间：26/23/20/17/14</div>
+				<div class="item">被动：亚托克斯造成对敌方英雄造成非持续性伤害时，可以回复20/22.5/25/27.5/30%生命值。
+	主动：亚托克斯向前突进。暗影冲决能与暗裔利刃同时施放。
+	冷却时间：9/8/7/6/5</div>
+				<div class="item">亚托克斯现出他的恶魔形态，持续10秒。激活时，他会恐惧附近的敌方小兵并获得不断衰减的移动速度60/80/100%加成。当【大灭】效果存留时，他获得20/25/30%攻击力并收到50/60/70%提升过的自我治疗效果。
+	在参与击杀敌方英雄后，【大灭】效果会延长。
+	冷却时间：120/100/80</div>	
+			</div>
+		</div>
+		
+		<script>
+			var lis=document.querySelectorAll('li');
+			var items=document.querySelectorAll('.item');
+			for(var i=0;i<lis.length;i++)     //或者直接改let
+			{
+				 lis[i].setAttribute('index', i);
+				lis[i].onmouseover=function()
+				{
+					this.style.backgroundColor='red';
+					var index = this.getAttribute('index');
+					items[index].style.display='block';
+				}
+				lis[i].onmouseout=function()
+				{
+					this.style.backgroundColor='';
+					var index = this.getAttribute('index');
+					items[index].style.display='none';
+				}
+				
+			}
+		</script>
+	</body>
+</html>

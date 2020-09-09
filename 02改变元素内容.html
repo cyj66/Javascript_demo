@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>改变元素内容</title>
+	</head>
+	<body>
+		<button>显示当前系统时间</button>
+		<div>某个时间</div>
+		<p>某个时间(不添加事件直接显示)</p>
+		<script>
+			function getDate(){
+				var dates=new Date();
+				var y=dates.getFullYear();  
+				var m=dates.getMonth()+1;
+				m=m<10?'0'+m:m;
+				var d=dates.getDate();
+				d=d<10?'0'+d:d;
+				var w=dates.getDay();
+				var arr=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+				return '今天的日期是：'+y+'年'+m+'月'+d+'日'+arr[w];
+			}
+			//1.获取事件
+			var btn=document.querySelector('button');
+			var div=document.querySelector('div');
+			//2.注册事件（事件绑定）
+			btn.onclick=function(){
+				div.innerText=getDate();
+			}
+			//3.不添加事件
+			var p=document.querySelector('p');
+			p.innerText=getDate();
+		</script>
+	</body>
+</html>

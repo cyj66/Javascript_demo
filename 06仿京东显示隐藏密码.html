@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box{
+				position:relative;
+				width: 400px;
+				margin:100px auto;
+				border-bottom:1px solid #ccc;		
+			}
+			input{
+				width: 370px;
+				height: 30px;
+				border:0;
+				outline:none;
+			}
+			img{
+				position:absolute;
+				top: 2px;
+				right: 2px;
+				width: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="password" name="" id="">
+			<label for="">
+				<img src="../images/close.png" alt="">
+			</label>
+		</div>
+		
+		<script>
+			var inp=document.querySelector('input');
+			var img=document.querySelector('img');
+			var flag=1;    //要在外面定义，因为第一次就要用到
+			img.onclick=function(){
+				if(flag==1){
+					inp.type='text';
+					img.src="../images/open.png";
+					flag=0;
+				}
+				else{
+					inp.type='password';
+					img.src="../images/close.png";
+					flag=1;
+				}
+			}
+		</script>
+	</body>
+</html>

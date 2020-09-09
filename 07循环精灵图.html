@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 250px;
+				margin:100px auto;
+			}
+			li{
+				list-style:none;
+				float: left;
+				width: 24px;
+				height: 24px;
+				margin: 15px;
+				background:url(../images/sprite.png) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<script>
+			var lis=document.querySelectorAll('li');
+			for(var i=0;i<lis.length;i++){
+				var index=-i*44;
+				lis[i].style.backgroundPosition='0 '+index+'px';         //style后面的样式为驼峰命名法
+			}
+		</script>
+	</body>
+</html>

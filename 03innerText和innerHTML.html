@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>双inner</title>
+	</head>
+	<body>
+		<div></div>
+		<p>
+			我是文字
+			<span>123</span>
+		</p>
+		<script>
+			//共同点：两个属性都是可读写的。innerText非标准，innerHTML为W3C标准。
+			//1.写时：innerText显示纯文本，innerHtml识别Html标签
+			var divs=document.querySelector('div');
+			//divs.innerText='看  我  有  无<strong>加粗<strong>';
+			divs.innerHTML='看  我  有  无<strong>加粗<strong>';
+			
+			//2.读时：innerText去除空格和换行，innerHTML保留空格和换行
+			var p=document.querySelector('p');
+			console.log(p.innerText);
+			console.log(p.innerHTML);
+		</script>
+	</body>
+</html>

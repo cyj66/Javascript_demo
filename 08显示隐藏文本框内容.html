@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			input{
+				color:#999;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" value="手机">
+		<script>
+			var text=document.querySelector('input');
+			//获得焦点事件onfocus
+			text.onfocus=function(){
+				if(this.value==='手机'){
+					this.value='';
+				}
+				//获得焦点并将文本框内的文字颜色变深
+				this.style.color='#333';
+			}
+			//失去焦点事件onblur
+			text.onblur=function(){
+				if(this.value===''){
+					this.value='手机';
+				}
+				//失去焦点并将文本框内的文字颜色变浅
+				this.style.color='#999';	
+			}
+		</script>
+	</body>
+</html>

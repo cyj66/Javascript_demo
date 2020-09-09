@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<input type="text" value="输入内容">
+		<script>
+			var btn=document.querySelector('button');
+			var inp=document.querySelector('input');
+			btn.onclick=function(){
+				inp.value='被点击了';   //修改表单元素内容不是用innerHTML,比较特殊
+				btn.disabled=true;   //点击后被禁用
+				//this.disabled=true;    //this指代该函数的调用者
+			}
+		</script>
+	</body>
+</html>

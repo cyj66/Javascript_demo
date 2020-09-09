@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var div=document.querySelector('div');
+			function fn(){
+				alert('hello');
+				div.removeEventListener('click',fn);
+			}
+			div.addEventListener('click',fn);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>事件委托</li>
+			<li>事件委托</li>
+			<li>事件委托</li>
+			<li>事件委托</li>
+		</ul>	
+			
+		<script>
+			var ul=document.querySelector('ul');
+			ul.addEventListener('click',function(e)
+			{
+				alert(e.target.innerHTML);
+				e.target.style.backgroundColor='red';
+			},false)
+		</script>
+	</body>
+</html>

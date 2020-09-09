@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			th,td{
+				border: 1px solid black;
+				background-color: gold;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table cellspacing="0" align="center" width="500px">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>科目</th>
+					<th>成绩</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<script>
+			//1.创建表格中的数据
+			var datas=[         //对象型数组
+				{
+					name:'诺手',
+					subject:'数学',
+					score:100
+				},{
+					name:'剑魔',
+					subject:'语文',
+					score:98
+				},{
+					name:'盖伦',
+					subject:'体育',
+					score:59
+				},{
+					name:'死歌',
+					subject:'音乐',
+					score:0
+				}
+			];
+			//2.创建表格行
+			var tbody=document.querySelector('tbody');
+			for(var i=0;i<datas.length;i++)
+			{
+				var tr=document.createElement('tr');
+				tbody.appendChild(tr);
+				//3.行里面创建表格,同时添加数据
+				for(var k in datas[i])
+				{
+					var td=document.createElement('td');
+					td.innerHTML=datas[i][k];
+					tr.appendChild(td);
+				}
+				//4.创建有删除操作的单元格
+				var td=document.createElement('td');
+				tr.appendChild(td);
+				td.innerHTML='<a href="javascript:;">删除</a>'
+			}
+			//5.注册删除操作事件
+			var as=document.querySelectorAll('a');
+			for(var i=0;i<as.length;i++)
+			{
+				as[i].onclick=function(){
+					tbody.removeChild(this.parentNode.parentNode);
+				}
+			}
+		</script>
+	</body>
+</html>

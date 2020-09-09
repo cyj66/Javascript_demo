@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img{
+				position:relative;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="angel.gif" alt="">
+		<script>
+			var img=document.querySelector('img');
+			document.addEventListener('mousemove',function(e)    //注意此处的对象为整个文档，而不只是图片
+			{
+				var x=e.pageX;
+				var y=e.pageY;
+				img.style.left=x-40+'px';
+				img.style.top=y-50+'px';
+			})
+		</script>
+	</body>
+</html>

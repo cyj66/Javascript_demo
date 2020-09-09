@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>关灯</button>
+		<script>
+			var btn=document.querySelector('button');
+			var body=document.body;
+			btn.onclick=function()
+			{
+				if(this.innerHTML=='关灯')
+				{
+					this.innerHTML='开灯';
+					body.style.backgroundColor='black';
+				}
+				else
+				{
+					this.innerHTML='关灯';
+					body.style.backgroundColor='white';
+				}
+			}
+		</script>
+	</body>
+</html>
