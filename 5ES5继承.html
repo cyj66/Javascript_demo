@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1.父
+			function Father(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			Father.prototype.money=function(){   //方法类用原型对象定义
+				console.log('赚钱');
+			}
+			//2.子
+			function Son(name,age){
+				Father.call(this,name,age);    //属性用call继承，方法用原型链继承
+			}
+			//Son.prototype=Father.prototype;    有问题，两者地址一样，子元素变化会导致父元素一起变化
+	//Father实例对象与原型对象地址不同，子指向父实例对象而与父原型对象地址不同，子变父不变；
+	//而父实例对象又指向父原型对象，所以可以调用到父原型对象中的money方法
+			Son.prototype=new Father(); 
+			Son.prototype.constructor=Son;
+			Son.prototype.exam=function(){
+				console.log('考试');
+			}
+			//3.实例化
+			var father=new Father('爸爸',65);
+			var son=new Son('儿子',20);
+			console.log(father);
+			console.log(son);
+			//儿子和父亲一样会赚钱，但父亲不用考试
+			console.log(Father.prototype);
+			console.log(Son.prototype);
+		</script>
+	</body>
+</html>

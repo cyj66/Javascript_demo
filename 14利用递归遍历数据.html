@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var data=[{
+				id:1,
+				name:'家电',
+				goods:[{
+					id:11,
+					name:'冰箱',
+					goods:[{
+						id:111,
+						name:'海尔'
+					},{
+						id:112,
+						name:'美的'
+					}]
+				},{
+					id:12,
+					name:'洗衣机'
+					}]
+				},	{
+					id:2,
+					name:'服饰'
+				}];
+			var o={};
+			function getById(arr,id){
+				arr.forEach(function(item){
+					if(item.id==id){
+						o=item;
+					}
+					else if(item.goods&&item.goods.length>0){
+						getById(item.goods,id);
+					}
+				});
+				return o;
+			}
+			console.log(getById(data,1));
+			console.log(getById(data,2));
+			console.log(getById(data,11));
+			console.log(getById(data,12));
+			console.log(getById(data,111));
+			console.log(getById(data,112));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var reg1=/123/;    //正则表达式里不管是数字还是字符串都不用加引号
+			console.log(reg1.test('123'));
+			console.log(reg1.test('1234'));
+			console.log(reg1.test('1123'));     //含有123即可
+			console.log(reg1.test('18293'));
+			console.log('------------------------');
+			var reg2=/^123/;    
+			console.log(reg2.test('123'));
+			console.log(reg2.test('1234'));
+			console.log(reg2.test('1123'));     //以123开头
+			console.log('------------------------');
+			var reg3=/123$/;    
+			console.log(reg3.test('123'));
+			console.log(reg3.test('1234'));
+			console.log(reg3.test('1123'));     //以123结尾
+			console.log('------------------------');
+			var reg4=/^123$/;    
+			console.log(reg4.test('123'));
+			console.log(reg4.test('123123'));   //精确匹配，必须是123
+			console.log('------------------------');
+			var reg5=/[abc]/;  //包含有a或b或c即可
+			console.log(reg5.test('andy'));
+			console.log('------------------------');
+			var reg6=/^[abc]$/;   //只能为a或b或c三选一
+			console.log(reg6.test('abc'));   
+			console.log(reg6.test('a'));
+			console.log('------------------------');
+			var reg7=/^[a-z]$/;   //只能为a到z其中一个
+			console.log(reg7.test('z'));   
+			console.log(reg7.test('az'));
+			console.log(reg7.test('A'));
+			console.log('------------------------');
+			//字符组合
+			var reg8=/^[a-zA-Z0-9_-]$/; //是里面的任何一个
+			console.log(reg8.test('c'));
+			console.log(reg8.test('C'));
+			console.log(reg8.test('5'));
+			console.log(reg8.test('-'));
+			console.log(reg8.test('_'));
+			console.log(reg8.test('?'));
+			console.log('------------------------');
+			//如果中括号中有^表示取反的意思，不是边界符
+			var reg9=/^[^a-zA-Z0-9_-]$/; //只能是一个字符，但不能是里面的任何一个
+			console.log(reg9.test('c'));
+			console.log(reg9.test('C'));
+			console.log(reg9.test('5'));
+			console.log(reg9.test('-'));
+			console.log(reg9.test('_'));
+			console.log(reg9.test('?'));
+			console.log(reg9.test('cyj'));
+			console.log('------------------------');
+			
+		</script>
+	</body>
+</html>

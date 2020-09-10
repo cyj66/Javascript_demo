@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj1={
+				id:1,
+				name:'牛逼',
+				msg:{
+					age:18    //浅拷贝的内层只会拷贝地址，因此两个对象指向同一个msg,其中一个改变会影响另一个
+				},
+				arr:[2,3,5]
+			};
+			var obj2={};
+			//1.浅拷贝1：for...in...
+			/*for(var k in obj1){
+				obj2[k]=obj1[k];
+			}*/
+			//2.浅拷贝2:Object.assign(...)
+			/*Object.assign(obj2,obj1);
+			console.log(obj2);
+			obj2.msg.age=20;
+			console.log(obj1);*/   //改2会影响1
+			//3.深拷贝
+			function deepcopy(obj2,obj1){
+				for(var k in obj1){
+					var item=obj1[k];
+					if(obj1[k] instanceof Array){    //数组也属于对象，为了细分，得写到对象前面
+						obj2[k]=[];
+						deepcopy(obj2[k],item);
+					}
+					else if(obj1[k] instanceof Object){
+						obj2[k]={};
+						deepcopy(obj2[k],item);
+					}
+					else{
+						obj2[k]=item;
+					}
+				}
+			}
+			deepcopy(obj2,obj1);
+			console.log(obj2);
+			obj2.msg.age=20;
+			console.log(obj1)
+		</script>
+	</body>
+</html>

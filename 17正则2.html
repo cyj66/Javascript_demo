@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// * 出现次数>=0
+			var reg1=/^a*$/;
+			console.log(reg1.test(''));
+			console.log(reg1.test('a'));
+			console.log(reg1.test('aaaaaaa'));
+			console.log('-----------------');
+			// + 出现次数>=1
+			var reg2=/^a+$/;
+			console.log(reg2.test(''));
+			console.log(reg2.test('a'));
+			console.log(reg2.test('aaaaaaa'));
+			console.log('-----------------');
+			// ? 出现次数 1/0
+			var reg3=/^a?$/;
+			console.log(reg3.test(''));
+			console.log(reg3.test('a'));
+			console.log(reg3.test('aaaaaaa'));
+			console.log('-----------------');
+			// {n} 出现次数n次
+			var reg4=/^a{3}$/;
+			console.log(reg4.test(''));
+			console.log(reg4.test('a'));
+			console.log(reg4.test('aaa'));
+			console.log(reg4.test('aaaaaaa'));
+			console.log('-----------------');
+			// {n,} 出现次数>=n
+			var reg5=/^a{3,}$/;
+			console.log(reg5.test(''));
+			console.log(reg5.test('a'));
+			console.log(reg5.test('aaa'));
+			console.log(reg5.test('aaaaaaa'));
+			console.log('-----------------');
+			// {n,m} 出现次数n<=x<=m
+			var reg6=/^a{3,9}$/;
+			console.log(reg6.test(''));
+			console.log(reg6.test('a'));
+			console.log(reg6.test('aaa'));
+			console.log(reg6.test('aaaaaaa'));
+			console.log(reg6.test('aaaaaaaaaaaaaaaa'));
+			console.log('-----------------');
+		</script>
+	</body>
+</html>

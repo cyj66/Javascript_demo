@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//创建 Symbol
+			let s1 = Symbol();    //不需要用new,因为不是对象
+			console.log(s1, typeof s1);
+			//添加标识的 Symbol
+			let s2 = Symbol('尚硅谷');  //里面的值只是描述用的，并不是唯一标识
+			let s2_2 = Symbol('尚硅谷');
+			console.log(s2 === s2_2);
+			//使用 Symbol for 定义
+			let s3 = Symbol.for('尚硅谷');    //里面的值唯一对应
+			let s3_2 = Symbol.for('尚硅谷');
+			console.log(s3 === s3_2);
+			//Symbol 作为对象的属性名，可以保证属性不重名。
+			let syObject = {
+			  [Symbol("key1")]: "kk"
+			};
+			console.log(syObject);
+			console.log(syObject[Symbol("key1")]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//父类加法，子类继承父类的加法，还自带减法
+			class Father{         //1.类名定义后面不用括号()，且类名首字母默认大写
+				constructor(x,y){      //2.构造函数constructor
+					this.x=x;
+					this.y=y;
+				}                 //3.因为是类，所以不用逗号隔开
+				add(){
+					console.log(this.x+this.y);        
+				}
+			}
+			var fa=new Father(3,5);      //4.先实例化，才能调用其属性和方法
+			fa.add();
+			
+			
+			class Son extends Father{      //5.继承extends父类
+				constructor(x,y) {    //9.此处的构造函数可以省略不写，继承会自带
+					super(x,y);       //6.需将x,y传给父类才可调用add，而且必须放在子类this之前
+				    this.x=x;
+				    this.y=y;
+				}                       
+				str(){
+					console.log(this.x-this.y);   //7.类里面的共有属性和方法一定要加this
+				}
+			}
+			var son=new Son(5,2);
+			son.str();           //8.es6没有变量提升，实例化必须写在类后面
+			son.add();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			if(true){
+				var v=1;    //在块级作用域（大括号）外也有效
+				let l=2;    //只有在块级作用域中有效
+				console.log(v);
+				console.log(l);
+			}
+			console.log(v);
+			//console.log(l);
+			
+			for(var i=0;i<2;i++){
+				
+			}
+			console.log(i);   //仍可访问到跳出循环的i
+			
+			for(let i2=0;i<2;i++){
+				
+			}
+			console.log(i2);   //访问不到，可防止循环变量变成全局变量
+		</script>
+	</body>
+</html>

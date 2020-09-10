@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: indianred;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			const sum=(a,b)=>a+b;
+			const result=sum(10,20);
+			console.log(result);
+			
+			//箭头函数面试题
+			var age=30;
+			var obj={
+				age:20,
+				say:()=>{
+					alert(this.age);   //箭头函数没有自己的this值，此处为对象，该语句外面没有包裹函数，因此this指向window
+				}                      //函数才有作用域，对象没有
+			}
+			obj.say();
+			
+			//点击div过2秒变色
+			let div=document.querySelector('div');
+			div.onclick=function(){
+				setTimeout(()=>{
+					div.style.backgroundColor='deepskyblue';
+				},2000);
+			}
+		</script>
+	</body>
+</html>

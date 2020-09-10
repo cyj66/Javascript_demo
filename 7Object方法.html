@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj={
+				id:1,
+				name:'小米',
+				price:1000
+			}
+			//1.Object.keys()返回由属性名组成的数组
+			console.log(Object.keys(obj));
+			//2.以前对象的属性添加和修改方式
+			/*obj.num=100;    //添加
+			obj.price=1500;    //修改*/
+			//3.Object.defineProperty()  定义新属性或修改原来的属性
+			Object.defineProperty(obj,'num',{
+				value:200
+			});
+			console.log(obj);
+			Object.defineProperty(obj,'price',{
+				value:3000
+			});
+			console.log(obj);
+			Object.defineProperty(obj,'id',{
+				writable:false   //不允许重写
+			});
+			obj.id=2;
+			console.log(obj);
+			Object.defineProperty(obj,'address',{
+				value:"关埠",
+				enumerable:false,    //不给遍历
+				configurable:false   //属性不可删除,特性（即第三个参数）不可修改
+			});
+			console.log(obj);
+			console.log(Object.keys(obj));
+			delete obj.address; 
+			console.log(obj);
+		</script>
+		
+	</body>
+</html>

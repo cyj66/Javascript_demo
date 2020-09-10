@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			span{
+				color:#aaa;
+			}
+			.right{
+				color:green;
+			}
+			.wrong{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text"><span>请输入用户名</span>
+		<script>
+			var ipt=document.querySelector('input');
+			var span=document.querySelector('span');
+			var re=/^[a-zA-Z0-9_-]{6,16}$/;
+			ipt.onblur=function(){
+				if(re.test(this.value)==true){
+					span.className='right';
+					span.innerHTML='格式正确';
+				}
+				else{
+					span.className='wrong';
+					span.innerHTML='格式错误';
+				}
+			}
+		</script>
+	</body>
+</html>

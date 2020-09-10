@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Warrior(name,age,fight){
+				this.name=name;               //1.实例成员
+				this.age=age;
+				/*this.fight=function(){
+					console.log('德玛西亚');      //2.构造函数中的共用方法内存位置不同，存在内存浪费问题
+				}*/
+			}
+			Warrior.sex='man';           //1.静态成员
+			Warrior.prototype.fight=function(){     //2.原型，共享方法。共享的方法一般用这个方式定义，共有的属性就不用
+				console.log('德玛西亚'); 
+			}
+			var gailun=new Warrior('盖伦',18);
+			var nuoshou=new Warrior('诺手',28);
+			console.log(gailun);        //3.对象身上系统自己添加一个__proto__属性指向构造函数的原型对象prototype
+			console.log(gailun.name);
+			gailun.fight();
+			console.log(Warrior.sex);
+			console.log(gailun.fight===nuoshou.fight); 
+			console.log(gailun.__proto__===Warrior.prototype);//3.先查找gailun是否有fight方法，有则执行这个对象的，没有则通过属性__proto__去原型对象prototype中查找
+			
+			
+		</script>
+	</body>
+</html>

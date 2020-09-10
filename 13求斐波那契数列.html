@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function fei(n){
+				if(n>=2){
+					return fei(n-1)+fei(n-2);
+				}
+				return 1;
+			}
+			console.log(fei(7));
+		</script>
+	</body>
+</html>

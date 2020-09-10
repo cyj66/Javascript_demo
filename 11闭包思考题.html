@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1
+			/*var name="the window";
+			var object={
+				name:"my object",
+				getNameFn:function(){
+					return function(){
+						return this.name;
+					}
+				}
+			}
+			console.log(object.getNameFn()());*/  //function(){this}();立即执行函数中的this指向window，此处没有闭包的产生，因为没有访问到局部变量
+		
+			//2
+			var name="the window";
+			var object={
+				name:"my object",
+				getNameFn:function(){
+					var that=this;
+					return function(){
+						return that.name;
+					}
+				}
+			}
+			console.log(object.getNameFn()());    //有闭包的产生，使用了上个函数的局部变量
+		</script>
+		
+	</body>
+</html>

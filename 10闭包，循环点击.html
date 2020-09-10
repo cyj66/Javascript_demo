@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>红发</li>
+			<li>白胡子</li>
+			<li>凯多</li>
+			<li>大妈</li>
+		</ul>
+		<script>
+			var lis=document.querySelectorAll('li');
+			//1.利用动态添加属性的方法
+			/*for(var i=0;i<lis.length;i++){
+				lis[i].index=i;         //给个属性index存下索引值
+				lis[i].onclick=function(){
+					//console.log(i);        //内外函数执行异步，此处只有点击时才调用，外部已跑完
+					console.log(this.index);
+				}
+			}*/
+			//2.利用闭包,立即执行函数又称小闭包,因为立即执行函数里面的任何一个函数都可使用外面传进来的变量
+			for(var i=0;i<lis.length;i++){
+				(function(i){
+					lis[i].onclick=function(){
+						console.log(i);
+					}
+				})(i);
+			}
+			//3.利用闭包3秒后打印所有li元素里面的内容
+			for(var i=0;i<lis.length;i++){
+				(function(i){
+					setTimeout(function(){
+						console.log(lis[i].innerHTML);
+					},3000)
+				})(i);
+			}
+			//4
+			/*setTimeout(function(){
+				for(var i=0;i<lis.length;i++){
+					console.log(lis[i].innerHTML);
+				}
+			},3000)*/
+		</script>
+	</body>
+</html>

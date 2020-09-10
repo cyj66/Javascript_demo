@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//解构
+			let {m:a,n:b}={m:1,n:2};
+			console.log(a);
+			let wangfei = {
+			 name: '王菲',
+			 age: 18,
+			 songs: ['红豆', '流年', '暧昧', '传奇'],
+			 history: [
+			 {name: '窦唯'},
+			 {name: '李亚鹏'},
+			 {name: '谢霆锋'}
+			 ]
+			};
+			let {songs, history} =wangfei;
+			console.log(history[0]);
+			//Set
+			const set = new Set([1, 2, 3, 4, 4]);
+			console.log(set);
+			//扩展运算
+			let skillOne = {
+			 q: '致命打击',
+			};
+			let skillTwo = {
+			 w: '勇气'
+			};
+			let skillThree = {
+			 e: '审判'
+			};
+			let skillFour = {
+			 r: '德玛西亚正义'
+			};
+			let gailun = {...skillOne, ...skillTwo,...skillThree,...skillFour};
+			console.log(gailun)
+		</script>
+	</body>
+</html>
